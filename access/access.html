@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>店舗情報</title>
+
+  <link rel="stylesheet" href="../CSS/access.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
+</head>
+<body>
+  <!-- ナビバー -->
+  <div class="topImg">
+  <div class='fixed-top'>
+  <nav class="navbar navbar-expand-lg sticky-top navbar-dark bg-dark">
+
+  <a class="navbar-brand" href="file:///C:/Users/nagas/Desktop/%E5%86%85%E5%AE%9A%E8%80%85%E7%A0%94%E4%BF%AE%E8%AA%B2%E9%A1%8C/index.html"><img src="../img/logoimg.png" alt="獣肉グルメ"></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse justify-content-end" id="navbarColor02">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="file:///C:/Users/nagas/Desktop/%E5%86%85%E5%AE%9A%E8%80%85%E7%A0%94%E4%BF%AE%E8%AA%B2%E9%A1%8C/index.html">野生の魅力</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="file:///C:/Users/nagas/Desktop/%E5%86%85%E5%AE%9A%E8%80%85%E7%A0%94%E4%BF%AE%E8%AA%B2%E9%A1%8C/report/report.html">実食レポ</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="#">店舗紹介<span class="sr-only">(current)</span></a>
+      </li>
+    </ul>
+  </div>
+  </nav>
+  </div>
+</div>
+
+<section id="title">
+  <h1>— 店舗紹介 —</h1>
+  <p>ここでは、私が今まで訪れたお店を紹介していきます。</p>
+</section>
+
+
+<div id="vue_unit">
+  <div class="mainCont" v-for="Main in Mains" :key="Main.id">
+   <h2>{{Main.name}}<a :href="Main.sitepath"　target="_blank" rel="noopener noreferrer">{{Main.sitename}}</a></h2>
+   <p style="white-space:pre-wrap; word-wrap:break-word;">{{Main.caption}}</p>
+   <div class="row">
+     <div class="col-md-6">
+      <img :src="Main.imgpath" :alt="Main.imgname">
+    </div>
+    <div class="col-md-6">
+<iframe :src="Main.mappath" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+  </div>
+</div>
+</div>
+</div>
+
+
+<!-- トップに戻る -->
+ <p id="pageTop"><a href="#vue_unit"><img src="../img/topback.png" alt="ページトップへ"></a></p>
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
+<script>
+
+
+var ik,app = new Vue({
+  el: "#vue_unit",
+  data: {
+     Mains :[
+        {
+          name:"米とサーカス 高田馬場本店",
+          sitepath:"https://miyashitakikaku.com/store/komecircus/",
+          sitename:"公式サイト",
+          caption:"珍しい肉を目当てに訪れた、初めてのお店です。居酒屋のような雰囲気で、女性のお客さんが多いです。初心者にはおすすめのお店だと思います。薬膳酒・滋養強壮酒が豊富です。\nお店の前には昆虫の自販機があります。お店の前の雰囲気も怪しさを演出していて面白いです。",
+          imgpath:"../img/komesa.jpg",
+          imgname:"米とサーカス外観",
+          mappath:"https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d3239.5212277303517!2d139.70201566468333!3d35.71339768018682!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e6!4m5!1s0x60188d399ddaa763%3A0x954afc3e292c9a7e!2z5p2x5Lqs6YO95paw5a6_5Yy66auY55Sw6aas5aC077yR5LiB55uu77yT77yVIOmrmOeUsOmmrOWgtOmnhQ!3m2!1d35.712565399999995!2d139.7038615!4m5!1s0x60188d38fcacd9f1%3A0xdcf26067335821ec!2z44CSMTY5LTAwNzUg5p2x5Lqs6YO95paw5a6_5Yy66auY55Sw6aas5aC077yS5LiB55uu77yR77yZ4oiS77yYIOeNo-iCiemFkuWutiDnsbPjgajjgrXjg7zjgqvjgrk!3m2!1d35.7142111!2d139.7045472!5e0!3m2!1sja!2sjp!4v1581259637560!5m2!1sja!2sjp"
+        },
+        {
+          name:"珍獣屋 横浜本店",
+          sitepath:"https://tabelog.com/kanagawa/A1401/A140102/14033402/",
+          sitename:"食べログ",
+          caption:"ジビエの店として有名なのは「米とサーカス」と「珍獣屋」。GW頃に行なわれる野毛の大道芸で出店があるので、軽く挑戦してみたい人はこちらの出店を目当てに大道芸を見に行くのも面白いと思います。ちなみに大道芸は寂れた感じが良かったです。\n珍獣屋はバーのようなおしゃれな雰囲気で、店員さんとの距離が近いのが魅力です。食材に関する色々な話を聞くことできます。\n画像は野毛で見つけた、野毛の雰囲気を良く表しているなあと思った壁です。お店とは一切関係ありません。",
+          imgpath:"../img/noge.jpg",
+          imgname:"野毛の壁",
+          mappath:"https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d3250.2209942867644!2d139.6286104646742!3d35.44932293024899!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e6!4m5!1s0x60185c5e382661f9%3A0xa71a65c0a2a7998b!2z56We5aWI5bed55yM5qiq5rWc5biC5Lit5Yy65qGc5pyo55S677yR5LiB55uuIOahnOacqOeUuumnhQ!3m2!1d35.4509136!2d139.6310595!4m5!1s0x60185c5ffbfe9067%3A0xbea09819df3ae889!2z44CSMjMxLTAwNjQg56We5aWI5bed55yM5qiq5rWc5biC5Lit5Yy66YeO5q-b55S677yR5LiB55uu77yU77yV4oiS77yRIOesrOS6jOa4r-iIiOeUo-ODk-ODqyDnj43njaPlsYs!3m2!1d35.4478863!2d139.6303366!5e0!3m2!1sja!2sjp!4v1581258497996!5m2!1sja!2sjp"
+        },
+        {
+          name:"珍獣屋　渋谷店",
+          sitepath:"https://twitter.com/noge_chinjuya",
+          sitename:"公式Twitter",
+          caption:"昨年新たに出来た、珍獣屋の二号店です。\nアクセスの良さが魅力で、渋谷のいかがわしい通り付近にあります。相変わらずコンセプトに合ったいい立地で、お店の雰囲気も変わりません。店員さんも横浜店と渋谷店を行き来しているようです。\n珍獣屋は調理技術が非常に高く、「珍獣」の種類だけでなく部位・食べ方にもこだわりを感じます。ワンランク上のお店という感じです。\nジビエは移り変わりが激しいので、公式Twitterから情報を得るのがおすすめです。",
+          imgpath:"../img/sake.jpg",
+          imgname:"タランチュラ・ゴキブリ酒",
+          mappath:"https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d3241.744143364557!2d139.69700486468145!3d35.65867488019955!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e6!4m5!1s0x60188b563b00109f%3A0x337328def1e2ab26!2z5riL6LC36aeF44CB5p2x5Lqs6YO95riL6LC35Yy6!3m2!1d35.6580339!2d139.7016358!4m5!1s0x60188d9a818d4623%3A0xee6e740cc2fa876c!2z44CSMTUwLTAwNDMg5p2x5Lqs6YO95riL6LC35Yy66YGT546E5Z2C77yS5LiB55uu77yS77yQ4oiS77yTIOODouODs-ODhumBk-eOhOWdgiDvvJHvvKYg54-N542j5bGL5riL6LC35bqX!3m2!1d35.6591915!2d139.6967513!5e0!3m2!1sja!2sjp!4v1581225848982!5m2!1sja!2sjp"
+        }
+      ]
+  }
+});
+
+
+
+
+//■page topボタン
+
+$(function(){
+var topBtn=$('#pageTop');
+topBtn.hide();
+
+//◇ボタンの表示設定
+$(window).scroll(function(){
+  if($(this).scrollTop()>80){
+
+    //---- 画面を80pxスクロールしたら、ボタンを表示する
+    topBtn.fadeIn();
+
+  }else{
+
+    //---- 画面が80pxより上なら、ボタンを表示しない
+    topBtn.fadeOut();
+
+  }
+});
+
+// ◇ボタンをクリックしたら、スクロールして上に戻る
+topBtn.click(function(){
+  $('body,html').animate({
+  scrollTop: 0},500);
+  return false;
+
+});
+
+});
+
+</script>
+
+
+
+
+</body>
+</html>

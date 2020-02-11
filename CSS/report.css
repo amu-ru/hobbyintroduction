@@ -1,6 +1,59 @@
 @import url(sanitize.css);
+@import url('https://fonts.googleapis.com/css?family=Kosugi+Maru&display=swap');
 
+
+body {
+  background-color: #f8f9fa!important;
+  padding-top: 100px; 　/* ナビバーが本文に被らないように */
+}
 
 nav {
   width:100%;
+}
+
+
+h1 {
+  font-size: 25px;
+}
+#title {
+  text-align: center;
+  font-family: 'Kosugi Maru', sans-serif;
+}
+
+
+.mainImg {
+  width: 100%;
+  margin: 20px 10px 20px;
+}
+
+/* 全体 */
+.inner p {
+  padding:20px;
+  font-family: 'Kosugi Maru', sans-serif;
+}
+/* 名前 */
+.inner span {
+  display: block;
+  background-color:	#8FBC8F;
+  border-bottom: 1px solid #ccc;
+  font-size: 1.3em;
+}
+
+
+/* トップに戻る */
+#pageTop {
+  position: fixed;
+  bottom: 0;
+  right: 10px;
+}
+
+#pageTop img {
+  width: 70px;
+  height: 70px;
+  z-index: 999;
+}
+
+#pageTop a:hover {
+  text-decoration: none;
+  opacity: 0.7;
 }
